@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+    command: bundle exec puma -p 9292
+    env_file:
+      - .env
+      - .env.local
+    ports:
+      - "9292:9292"
+    stdin_open: true
+    volumes:
+      - .:/app

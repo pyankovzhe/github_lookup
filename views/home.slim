@@ -1,0 +1,7 @@
+== render :search
+== render :errors
+
+- if @repositories
+  h3= "Top results for #{@query} search"
+  - @repositories.each do |repo|
+    li: a target='_blank' href=repo['html_url'] = repo['full_name']
